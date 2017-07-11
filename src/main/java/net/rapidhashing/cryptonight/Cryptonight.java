@@ -17,5 +17,5 @@ public class Cryptonight {
 	 * @param input
 	 * @param output
 	 */
-	public static native void fastHash(byte[] input, byte[] output);
+	public static native void fastHash(byte[] input, byte[] output) throws InvalidOutputLengthException;
 }

@@ -21,7 +21,7 @@ public class CryptonightFastHashTest {
 
 	@Test
 	public void testWowza() {
-		byte[] outputBuffer = new byte[16];
+		byte[] outputBuffer = new byte[32];
 
 		Cryptonight.fastHash(WOWZA.getBytes(), outputBuffer);
 		assertArrayEquals(WOWZA_HASH, outputBuffer);
@@ -33,5 +33,13 @@ public class CryptonightFastHashTest {
 
 		Cryptonight.fastHash(SPICY.getBytes(), outputBuffer);
 		assertArrayEquals(SPICY_HASH, outputBuffer);
+	}
+
+	@Test(expected = InvalidOutputLengthException.class)
+	public void smallArray() {
+		byte[] outputBuffer = new byte[16];
+
+		Cryptonight.fastHash(WOWZA.getBytes(), outputBuffer);
+		assertArrayEquals(WOWZA_HASH, outputBuffer);
 	}
 }
