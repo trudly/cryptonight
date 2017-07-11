@@ -7,9 +7,16 @@ JNICALL void fastHash(JNIEnv *env, jclass clazz, jbyteArray input, jbyteArray ou
 	unsigned char* outputBuffer = (*env)->GetByteArrayElements(env, output, NULL);
 
 	jsize inputSize = (*env)->GetArrayLength(env, input);
-//	jsize outputSize = (*env)->GetArrayLength(env, output);
+	jsize outputSize = (*env)->GetArrayLength(env, output);
 
 //	TODO: check outputSize is 32 (or greater than?)
+
+	if (outputSize < 32) {
+		jclass iole = (*env)->FindClass(env, "net/rapidhashing/cryptonight/InvalidOutputLengthException");
+
+		(*env)->ThrowNew(env, iole, "length of output array is less than 32 bytes");
+		return;
+	}
 
 	cryptonight_fast_hash(inputBuffer, outputBuffer, inputSize);
 
