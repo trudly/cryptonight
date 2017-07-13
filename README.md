@@ -17,6 +17,28 @@ Add jar to classpath and call `Cryptonight.fastHash`
 
 	byte[] outputBuffer = new byte[32];
 	Cryptonight.fastHash("test".getBytes(), outputBuffer);
+	
+## Maven Dependency
+
+	<repositories>
+	    <repository>
+	        <snapshots>
+	            <enabled>false</enabled>
+	        </snapshots>
+	        <id>bintray-rapidhashing-cryptonight</id>
+	        <name>bintray</name>
+	        <url>http://dl.bintray.com/rapidhashing/cryptonight</url>
+	    </repository>
+	</repositories>
+	
+	<dependencies>
+		<dependency>
+		  <groupId>net.rapidhashing</groupId>
+		  <artifactId>cryptonight</artifactId>
+		  <version>1.0.0</version>
+		  <type>pom</type>
+		</dependency>
+	</dependencies>
 
 ## License
 

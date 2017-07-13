@@ -4,7 +4,7 @@
 
 	<groupId>net.rapidhashing</groupId>
 	<artifactId>cryptonight</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
 	<name>cryptonight</name>
@@ -31,6 +31,14 @@
 		<developerConnection>scm:git:git://github.com/rapidhashing/cryptonight.git</developerConnection>
 		<url>http://github.com/rapidhashing/cryptonight</url>
 	</scm>
+
+	<distributionManagement>
+		<repository>
+			<id>bintray-rapidhashing-cryptonight</id>
+			<name>rapidhashing-cryptonight</name>
+			<url>https://api.bintray.com/maven/rapidhashing/cryptonight/cryptonight/;publish=1</url>
+		</repository>
+	</distributionManagement>
 
 	<dependencies>
 		<dependency>
@@ -69,13 +77,6 @@
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
-
-			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jarsigner-plugin</artifactId> 
-				<version>1.4</version> <executions> <execution> <id>sign</id> <phase>verify</phase> 
-				<goals> <goal>sign</goal> </goals> </execution> </executions> </plugin> <plugin> 
-				<groupId>org.apache.maven.plugins</groupId> <artifactId>maven-gpg-plugin</artifactId> 
-				<version>1.6</version> <executions> <execution> <id>sign-artifacts</id> <phase>verify</phase> 
-				<goals> <goal>sign</goal> </goals> </execution> </executions> </plugin> -->
 		</plugins>
 	</build>
 </project>
