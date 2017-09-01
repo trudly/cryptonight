@@ -24,7 +24,7 @@ JNICALL void fastHash(JNIEnv *env, jclass clazz, jbyteArray input, jbyteArray ou
 	(*env)->ReleaseByteArrayElements(env, output, outputBuffer, JNI_COMMIT);
 }
 
-JNICALL void hash(JNIEnv *env, jclass clazz, jbyteArray input, jbyteArray output) {
+JNICALL void slowHash(JNIEnv *env, jclass clazz, jbyteArray input, jbyteArray output) {
 	unsigned char* inputBuffer = (*env)->GetByteArrayElements(env, input, NULL);
 	unsigned char* outputBuffer = (*env)->GetByteArrayElements(env, output, NULL);
 
@@ -50,7 +50,7 @@ JNICALL void hash(JNIEnv *env, jclass clazz, jbyteArray input, jbyteArray output
 
 static const JNINativeMethod methods[] = {
 	{ "fastHash", "([B[B)V", (void *) fastHash },
-	{ "hash", "([B[B)V", (void *) hash },
+	{ "slowHash", "([B[B)V", (void *) slowHash },
 };
 
 jint JNI_OnLoad(JavaVM *vm, void *reserved) {
