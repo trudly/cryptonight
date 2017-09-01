@@ -12,10 +12,7 @@ public class Cryptonight {
 		NativeLibraryUtil.loadNativeLibrary(Cryptonight.class, "cryptonight");
 	}
 
-	/**
-	 * 
-	 * @param input
-	 * @param output
-	 */
 	public static native void fastHash(byte[] input, byte[] output) throws InvalidOutputLengthException;
+	
+	public static native void hash(byte[] input, byte[] output) throws InvalidOutputLengthException;
 }
